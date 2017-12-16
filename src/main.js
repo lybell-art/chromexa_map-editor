@@ -7,6 +7,7 @@ var enemy=false;
 var rowSlider;
 var colSlider;
 var sliderPressed=false;
+var saveButton;
 
 function setup()
 {
@@ -16,14 +17,17 @@ function setup()
 	field=new FIELD();
 	field.makeField(10,10);
 	screenControl.set(this.field.w,this.field.h);
-	rowSlider = createSlider(0, 50, 10, 1);
+	rowSlider = createSlider(1, 50, 10, 1);
  	rowSlider.position(10, 10);
 	rowSlider.mousePressed(function(){sliderPressed=true;});
 	rowSlider.mouseReleased(function(){sliderPressed=false;});
-	colSlider = createSlider(0, 50, 10, 1);
+	colSlider = createSlider(1, 50, 10, 1);
  	colSlider.position(10, 40);
 	colSlider.mousePressed(function(){sliderPressed=true;});
 	colSlider.mouseReleased(function(){sliderPressed=false;});
+	saveButton=createButton('SAVE');
+	saveButton.position(width-saveButton.width,0);
+	saveButton.mousePressed(exportMap);
 }
 function draw()
 {
@@ -100,13 +104,34 @@ function keyPressed()
 }
 function changer()
 {
-	console.log(field);
 	field.makeField(rowSlider.value(), colSlider.value());
-	console.log(field);
 	screenControl.set(field.w,field.h);
 	screenControl.scale(0.0001,width/2,height/2);
 }
-
+function exportMap()
+{
+	var i,j;
+	var datum=function(cell)
+	{
+		var kind=cell.kind;
+		var who=cell.who;
+		var enemy=cell.enemy;
+		var enemyCode=null;
+		if(enemy) enemyCode=1001;
+		return kind+"|"+who+"|"+enemyCode;
+	};
+	var table=new p5.Table();
+	for(i=0;i<field.h;i++) table.addRow();
+	for(i=0;i<field.w;i++) table.addColumn();
+	for(i=0;i<field.h;i++)
+	{
+		for(j=0;j<field.w;j++)
+		{
+			table.set(i,j,datum(field.cells[i][j]));
+		}
+	}
+	saveTables('');
+}
 function roundedHexagon(x,y,r)
 {
 	beginShape();
