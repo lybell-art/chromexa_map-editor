@@ -5,6 +5,7 @@ var kind=1;
 var who=1;
 var rowSlider;
 var colSlider;
+var sliderPressed=false;
 
 function setup()
 {
@@ -16,10 +17,12 @@ function setup()
 	screenControl.set(this.field.w,this.field.h);
 	rowSlider = createSlider(0, 50, 10, 1);
  	rowSlider.position(10, 10);
-	rowSlider.changed(changer);
+	rowSlider.mousePressed(function(){sliderPressed=true;});
+	rowSlider.mouseReleased(function(){sliderPressed=false;});
 	colSlider = createSlider(0, 50, 10, 1);
  	colSlider.position(10, 40);
-	colSlider.changed(changer);
+	colSlider.mousePressed(function(){sliderPressed=true;});
+	colSlider.mouseReleased(function(){sliderPressed=false;});
 }
 function draw()
 {
@@ -34,6 +37,7 @@ function draw()
 			field.cells[clickSignal.index.row][clickSignal.index.col].who=who;
 		}
 	}
+	if(mouseIsPressed&&sliderPressed) changer();
 	background(255);
 	screenControl.setScreen();
 	field.draw();
