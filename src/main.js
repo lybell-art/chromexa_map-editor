@@ -24,12 +24,15 @@ function setup()
 function draw()
 {
 	inputBroadcast.renew();
-	var clickSignal;
-	clickSignal=field.clickCheck();
-	if(clickSignal!==null)
+	if(inputBroadcast.isMousePress)
 	{
-		this.field.cells[clickSignal.index.row][clickSignal.index.col].kind=kind;
-		this.field.cells[clickSignal.index.row][clickSignal.index.col].who=who;
+		var clickSignal;
+		clickSignal=field.clickCheck();
+		if(clickSignal!==null)
+		{
+			field.cells[clickSignal.index.row][clickSignal.index.col].kind=kind;
+			field.cells[clickSignal.index.row][clickSignal.index.col].who=who;
+		}
 	}
 	background(255);
 	screenControl.setScreen();
