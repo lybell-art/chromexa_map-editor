@@ -120,7 +120,7 @@ function exportMap()
 			table.set(i,j,datum(field.cells[i][j]));
 		}
 	}
-	table.saveTable('');
+	saveTable(table,"map.csv");
 }
 function roundedHexagon(x,y,r)
 {
