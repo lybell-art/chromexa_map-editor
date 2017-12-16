@@ -65,6 +65,7 @@ function changer()
 	field.makeField(rowSlider.value(), colSlider.value());
 	console.log(field);
 	screenControl.set(field.w,field.h);
+	screenControl.scale(0.0001,width/2,height/2);
 }
 
 function roundedHexagon(x,y,r)
