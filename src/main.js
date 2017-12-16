@@ -60,8 +60,7 @@ function draw()
 					case 5:thisCell.who=-1;
 					default:thisCell.who=who;
 				}
-			}}
-			
+			}
 		}
 	}
 	if(mouseIsPressed&&sliderPressed) changer();
