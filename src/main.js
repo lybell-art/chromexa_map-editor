@@ -1,8 +1,8 @@
 var screenControl;	//class that control screen
 var inputBroadcast;	//user-input varient class
 var field=null;
-var kind;
-var who;
+var kind=1;
+var who=1;
 var rowSlider;
 var colSlider;
 
@@ -12,7 +12,7 @@ function setup()
 	inputBroadcast=new BROADCAST();
 	screenControl=new SCREEN_CONTROL(width,height);
 	field=new FIELD();
-	field.makeField();
+	field.makeField(10,10);
 	screenControl.set(this.field.w,this.field.h);
 	rowSlider = createSlider(0, 50, 10, 1);
  	rowSlider.position(10, 10);
@@ -51,4 +51,9 @@ function mouseWheel(event)
 {
 	var newZoom=screenControl.zoom+0.001*event.delta;
 	screenControl.scale(newZoom,mouseX,mouseY);
+}
+function changer()
+{
+	field.makeField(rowSlider.value, colSlider.value);
+	screenControl.set(this.field.w,this.field.h);
 }
