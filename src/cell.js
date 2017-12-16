@@ -34,6 +34,7 @@ function CELL(i,j,kind,who)
 	this.y=45*cos(PI/6)*(2*this.index.row+2-this.index.col%2);
 	this.kind=kind;
 	this.who=who;
+	this.enemy=false;
 	this.r=30;
 	if(this.kind==3) this.r=40;
 }
@@ -61,10 +62,20 @@ CELL.prototype.draw=function()
 	}
 	else
 	{
+		strokeWeight(2.5);
 		fill(255);
 		stroke(col);
 	}
 	if(this.kind!=0) roundedHexagon(this.x,this.y,this.r);
+	if(this.enemy)
+	{
+		fill(_BLACK);
+		noStroke();
+		ellipse(this.x,this.y.40,40);
+	}
+	fill(0);
+	noStroke();
+	text(this.kind,this.x,this.y-this.r);
 }
 /**
  *
