@@ -59,6 +59,41 @@ function mouseWheel(event)
 	var newZoom=screenControl.zoom+0.001*event.delta;
 	screenControl.scale(newZoom,mouseX,mouseY);
 }
+function keyPressed()
+{
+	switch(key)
+	{
+		case '`':kind=0; who=-1; break;
+		case '1':kind=1; break;
+		case '2':kind=2; break;
+		case '3':kind=3; break;
+		case '4':kind=4; break;
+		case '5':kind=5; who=-1; break;
+/*		case '6':kind=6; break;
+		case '7':kind=7; break;
+		case '8':kind=8; break;
+		case '9':kind=9; break;
+		case '0':kind=10; break;
+		case 'Q':
+		case 'q':kind=11; break;
+		case 'W':
+		case 'w':kind=12; break;
+		case 'E':
+		case 'e':kind=13; break;
+		case 'R':
+		case 'r':kind=14; break;
+		case 'T':
+		case 't':kind=15; break;
+		case 'Y':
+		case 'y':kind=16; break;*/
+		case 'Z':
+		case 'z':who=1; break;
+		case 'X':
+		case 'x':who=2; break;
+		case 'C':
+		case 'c':who=0; break;
+	}
+}
 function changer()
 {
 	console.log(field);
