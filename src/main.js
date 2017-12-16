@@ -47,14 +47,21 @@ function draw()
 		if(clickSignal!==null)
 		{
 			var thisCell=field.cells[clickSignal.index.row][clickSignal.index.col];
-			thisCell.kind=kind;
-			switch(who)
+			if(enemy)
 			{
-				case 0:
-				case 5:thisCell.who=-1;
-				default:thisCell.who=who;
+				thisCell.enemy=!thisCell.enemy;
 			}
-			thisCell.enemy=enemy;
+			else
+			{
+				thisCell.kind=kind;
+				switch(who)
+				{
+					case 0:
+					case 5:thisCell.who=-1;
+					default:thisCell.who=who;
+				}
+			}}
+			
 		}
 	}
 	if(mouseIsPressed&&sliderPressed) changer();
