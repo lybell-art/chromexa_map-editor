@@ -111,12 +111,11 @@ function exportMap()
 		return kind+"|"+who+"|"+enemyCode;
 	};
 	var table=new p5.Table();
-	for(i=0;i<field.h;i++) table.addRow();
-	for(i=0;i<field.w;i++) table.addColumn();
-	console.log(field, field.w, field.h);
-	for(i=0;i<field.h;i++)
+	for(i=0;i<field.Rows;i++) table.addRow();
+	for(i=0;i<field.Columns;i++) table.addColumn();
+	for(i=0;i<field.Rows;i++)
 	{
-		for(j=0;j<field.w;j++)
+		for(j=0;j<field.Columns;j++)
 		{
 			table.set(i,j,datum(field.cells[i][j]));
 		}
