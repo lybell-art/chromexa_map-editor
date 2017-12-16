@@ -55,7 +55,7 @@ function mouseWheel(event)
 function changer()
 {
 	field.makeField(rowSlider.value, colSlider.value);
-	screenControl.set(this.field.w,this.field.h);
+	screenControl.set(field.w,field.h);
 }
 
 function roundedHexagon(x,y,r)
