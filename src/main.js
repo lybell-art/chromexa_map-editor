@@ -103,7 +103,6 @@ function exportMap()
 	var i,j;
 	var datum=function(cell)
 	{
-		console.log(cell);
 		var kind=cell.kind;
 		var who=cell.who;
 		var enemy=cell.enemy;
@@ -114,11 +113,11 @@ function exportMap()
 	var table=new p5.Table();
 	for(i=0;i<field.h;i++) table.addRow();
 	for(i=0;i<field.w;i++) table.addColumn();
+	console.log(field, field.w, field.h);
 	for(i=0;i<field.h;i++)
 	{
 		for(j=0;j<field.w;j++)
 		{
-			console.log(field.cells[i][j]);
 			table.set(i,j,datum(field.cells[i][j]));
 		}
 	}
