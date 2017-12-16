@@ -19,7 +19,7 @@ function setup()
 	rowSlider.changed(changer);
 	colSlider = createSlider(0, 50, 10, 1);
  	colSlider.position(10, 40);
-	rowSlider.changed(changer);
+	colSlider.changed(changer);
 }
 function draw()
 {
@@ -54,7 +54,9 @@ function mouseWheel(event)
 }
 function changer()
 {
+	console.log(field);
 	field.makeField(rowSlider.value, colSlider.value);
+	console.log(field);
 	screenControl.set(field.w,field.h);
 }
 
