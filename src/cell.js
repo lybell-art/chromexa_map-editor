@@ -71,7 +71,7 @@ CELL.prototype.draw=function()
 	{
 		fill(_BLACK);
 		noStroke();
-		ellipse(this.x,this.y.40,40);
+		ellipse(this.x,this.y,40,40);
 	}
 	fill(0);
 	noStroke();
