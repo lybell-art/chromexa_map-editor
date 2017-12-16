@@ -57,7 +57,7 @@ function draw()
 				switch(kind)
 				{
 					case 0:
-					case 5:thisCell.who=-1;
+					case 5:thisCell.who=-1; break;
 					default:thisCell.who=who;
 				}
 			}
