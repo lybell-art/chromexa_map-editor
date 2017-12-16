@@ -44,11 +44,17 @@ function draw()
 	{
 		var clickSignal;
 		clickSignal=field.clickCheck();
+		var thisCell=field.cells[clickSignal.index.row][clickSignal.index.col];
 		if(clickSignal!==null)
 		{
-			field.cells[clickSignal.index.row][clickSignal.index.col].kind=kind;
-			field.cells[clickSignal.index.row][clickSignal.index.col].who=who;
-			field.cells[clickSignal.index.row][clickSignal.index.col].enemy=enemy;
+			thisCell.kind=kind;
+			switch(who)
+			{
+				case 0:
+				case 5:thisCell.who=-1;
+				default:thisCell.who=who;
+			}
+			thisCell.enemy=enemy;
 		}
 	}
 	if(mouseIsPressed&&sliderPressed) changer();
@@ -77,12 +83,12 @@ function keyPressed()
 {
 	switch(keyCode)
 	{
-		case 192:kind=0; who=-1; break;	//`
+		case 192:kind=0; break;		//`
 		case 49:kind=1; break;		//1
 		case 50:kind=2; break;		//2
 		case 51:kind=3; break;		//3
 		case 52:kind=4; break;		//4
-		case 53:kind=5; who=-1; break;	//5
+		case 53:kind=5; break;		//5
 /*		case 54:kind=6; break;		//6
 		case 55:kind=7; break;		//7
 		case 56:kind=8; break;		//8
