@@ -22,7 +22,16 @@ function FIELD()
 	this.Columns=0;
 	this.w=0;
 	this.h=0;
-	this.cells=[];
+	this.cells=new Array(100);
+	for(var i=0;i<100;i++) this.cells[i]=new Array(100);
+	for(var i=0;i<100;i++)
+	{
+		this.cells[i]=new Array(100);
+		for(var j=0;j<100;j++)
+		{
+			this.cells[i][j]=new CELL(i,j,2,0);
+		}
+	}
 }
 /**
  *
@@ -31,7 +40,7 @@ function FIELD()
  * @param {object|MAP_DATA} mapData	resourceBox 클래스에 저장된 맵의 데이터
  *
  */
-FIELD.prototype.makeField=function()
+FIELD.prototype.makeField=function(row, col)
 {
 	/* 미구현
 	var mapData_kind=mapData.kind;
@@ -39,19 +48,10 @@ FIELD.prototype.makeField=function()
 	this.Rows=mapData.row;
 	this.Columns=mapData.column;
 	*/
-	this.Rows=10;
-	this.Columns=15;
+	this.Rows=row;
+	this.Columns=col;
 	this.w=45*(1.5*this.Columns+0.5);
 	this.h=45*cos(PI/6)*(2*this.Rows+1);
-	for(var i=0;i<this.Rows;i++)
-	{
-		this.cells[i]=[];
-		for(var j=0;j<this.Columns;j++)
-		{
-	//		this.cells[i][j]=new CELL(i,j,mapData_kind[i][j],mapData_who[i][j]);
-			this.cells[i][j]=new CELL(i,j,1,0);
-		}
-	}
 }
 /**
  *
