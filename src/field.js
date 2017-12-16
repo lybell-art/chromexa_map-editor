@@ -29,7 +29,7 @@ function FIELD()
 		this.cells[i]=new Array(100);
 		for(var j=0;j<100;j++)
 		{
-			this.cells[i][j]=new CELL(i,j,2,0);
+			this.cells[i][j]=new CELL(i,j,0,-1);
 		}
 	}
 }
