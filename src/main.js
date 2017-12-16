@@ -103,6 +103,7 @@ function exportMap()
 	var i,j;
 	var datum=function(cell)
 	{
+		console.log(cell);
 		var kind=cell.kind;
 		var who=cell.who;
 		var enemy=cell.enemy;
@@ -117,6 +118,7 @@ function exportMap()
 	{
 		for(j=0;j<field.w;j++)
 		{
+			console.log(field.cells[i][j]);
 			table.set(i,j,datum(field.cells[i][j]));
 		}
 	}
