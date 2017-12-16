@@ -3,6 +3,7 @@ var inputBroadcast;	//user-input varient class
 var field=null;
 var kind=1;
 var who=1;
+var enemy=false;
 var rowSlider;
 var colSlider;
 var sliderPressed=false;
@@ -35,6 +36,7 @@ function draw()
 		{
 			field.cells[clickSignal.index.row][clickSignal.index.col].kind=kind;
 			field.cells[clickSignal.index.row][clickSignal.index.col].who=who;
+			field.cells[clickSignal.index.row][clickSignal.index.col].enemy=enemy;
 		}
 	}
 	if(mouseIsPressed&&sliderPressed) changer();
@@ -92,6 +94,8 @@ function keyPressed()
 		case 'x':who=2; break;
 		case 'C':
 		case 'c':who=0; break;
+		case 'V':
+		case 'v':enemy=!enemy; break;
 	}
 }
 function changer()
