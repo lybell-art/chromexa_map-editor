@@ -54,7 +54,7 @@ function draw()
 			else
 			{
 				thisCell.kind=kind;
-				switch(who)
+				switch(kind)
 				{
 					case 0:
 					case 5:thisCell.who=-1;
