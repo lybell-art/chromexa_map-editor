@@ -44,9 +44,9 @@ function draw()
 	{
 		var clickSignal;
 		clickSignal=field.clickCheck();
-		var thisCell=field.cells[clickSignal.index.row][clickSignal.index.col];
 		if(clickSignal!==null)
 		{
+			var thisCell=field.cells[clickSignal.index.row][clickSignal.index.col];
 			thisCell.kind=kind;
 			switch(who)
 			{
