@@ -67,39 +67,29 @@ function mouseWheel(event)
 }
 function keyPressed()
 {
-	switch(key)
+	switch(keyCode)
 	{
-		case '`':kind=0; who=-1; break;
-		case '1':kind=1; break;
-		case '2':kind=2; break;
-		case '3':kind=3; break;
-		case '4':kind=4; break;
-		case '5':kind=5; who=-1; break;
-/*		case '6':kind=6; break;
-		case '7':kind=7; break;
-		case '8':kind=8; break;
-		case '9':kind=9; break;
-		case '0':kind=10; break;
-		case 'Q':
-		case 'q':kind=11; break;
-		case 'W':
-		case 'w':kind=12; break;
-		case 'E':
-		case 'e':kind=13; break;
-		case 'R':
-		case 'r':kind=14; break;
-		case 'T':
-		case 't':kind=15; break;
-		case 'Y':
-		case 'y':kind=16; break;*/
-		case 'Z':
-		case 'z':who=1; break;
-		case 'X':
-		case 'x':who=2; break;
-		case 'C':
-		case 'c':who=0; break;
-		case 'V':
-		case 'v':enemy=!enemy; break;
+		case 192:kind=0; who=-1; break;	//`
+		case 49:kind=1; break;		//1
+		case 50:kind=2; break;		//2
+		case 51:kind=3; break;		//3
+		case 52:kind=4; break;		//4
+		case 53:kind=5; who=-1; break;	//5
+/*		case 54:kind=6; break;		//6
+		case 55:kind=7; break;		//7
+		case 56:kind=8; break;		//8
+		case 57:kind=9; break;		//9
+		case 48:kind=10; break;		//0
+		case 81:kind=11; break;		//q
+		case 87:kind=12; break;		//w
+		case 69:kind=13; break;		//e
+		case 82:kind=14; break;		//r
+		case 84:kind=15; break;		//t
+		case 89:kind=16; break;*/	//y
+		case 90:who=1; break;		//z
+		case 88:who=2; break;		//x
+		case 67:who=0; break;		//c
+		case 86:enemy=!enemy; break;	//v
 	}
 }
 function changer()
