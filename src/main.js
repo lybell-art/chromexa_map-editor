@@ -25,7 +25,7 @@ function draw()
 {
 	inputBroadcast.renew();
 	var clickSignal;
-	clickSignal=this.field.clickCheck();
+	clickSignal=field.clickCheck();
 	if(clickSignal!==null)
 	{
 		this.field.cells[clickSignal.index.row][clickSignal.index.col].kind=kind;
