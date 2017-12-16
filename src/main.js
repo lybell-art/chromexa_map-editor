@@ -58,7 +58,7 @@ function mouseWheel(event)
 function changer()
 {
 	console.log(field);
-	field.makeField(rowSlider.value, colSlider.value);
+	field.makeField(rowSlider.value(), colSlider.value());
 	console.log(field);
 	screenControl.set(field.w,field.h);
 }
